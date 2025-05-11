@@ -154,6 +154,10 @@ function TutorialButton(){
     window.location.href = 'https://www.youtube.com/watch?v=XHC6QNVrh2E'
 }
 
+function Logout(){
+    window.location.href = './first-page.html'
+}
+
 function VerifyPayment(){
     const buy = parseFloat(document.getElementById('buy-input').value)
     let balances = loadBalancesFromStorage();
