@@ -40,6 +40,20 @@ const defaultBalances = {
     myr: 0.0
 };
 
+
+const bestRates = {
+    usd: 16471.0,
+    sgd: 12219.0,
+    cny: 2272.0,
+    eur: 17894.0,
+    aud: 10297.0,
+    jpy: 108.0,
+    gbp: 20726.0,
+    hkd: 2103.0,
+    thb: 483.0,
+    myr: 3686.0
+};
+
 function loadBalancesFromStorage() {
     return JSON.parse(localStorage.getItem('balances')) || defaultBalances;
 }
@@ -69,6 +83,13 @@ function LoadSellRate() {
     for (let key in sellRates) {
         const el = document.getElementById(`${key}-sellrate`);
         if (el) el.innerHTML = sellRates[key].toFixed(2);
+    }
+}
+
+function LoadSelectedRate() {
+    for (let key in bestRates) {
+        const el = document.getElementById(`${key}-rate`);
+        if (el) el.innerHTML = bestRates[key].toFixed(2);
     }
 }
 
@@ -121,9 +142,33 @@ function SellButton(img, currency, balance, sellrate) {
     const url = `./SellPage.html?img=${encodeURIComponent(img)}&currency=${encodeURIComponent(currency)}&balance=${encodeURIComponent(balance)}&sellrate=${encodeURIComponent(sellrate)}&idrbalance=${encodeURIComponent(balances.idr)}`;
     window.location.href = url;
 }
+
+function ProfileButton(){
+    window.location.href = './ProfilePage.html'
+}
+function TopupButton(){
+    window.location.href = './TopUpPage.html'
+}
+
+function TutorialButton(){
+    window.location.href = 'https://www.youtube.com/watch?v=XHC6QNVrh2E'
+}
+
+function VerifyPayment(){
+    const buy = parseFloat(document.getElementById('buy-input').value)
+    let balances = loadBalancesFromStorage();
+    balances.idr += buy
+    saveBalancesToStorage(balances);
+    alert(`Payment Verified!`);
+    window.location.href = './HomePage.html';
+}
+
 window.onload = function () {
-    //localStorage.clear();
+    // localStorage.clear();
     LoadBalance();
     LoadBuyRate();
     LoadSellRate();
+    LoadSelectedRate()
 };
+
+

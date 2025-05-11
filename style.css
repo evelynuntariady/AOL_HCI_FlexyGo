@@ -110,7 +110,6 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-right: 1rem;
     background-color: var(--header-color);
     width: 100%;
     border-top-left-radius: 2rem;
@@ -118,11 +117,7 @@ body{
 }
 
 #dropdown-currency-container{
-    width: 80%;
-    height: 2rem;
-    background-color: white;
-    border-radius: 1rem;
-    
+    padding-right: 1rem;   
 }
 .dropdown {
     position: relative;
@@ -349,6 +344,133 @@ body{
     border-radius: 1rem;
 }
 
+#graph-container{
+    width: 100%;
+}
+
+.graph{
+    width: 100%;
+}
+
+#graph-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.title-home{
+    display: flex;
+    align-items: center;
+}
+.balance-home{
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0 1.7rem;
+    margin-bottom: 1rem;
+}
+
+.top-up-container{
+    display: flex;
+    align-items: center;
+    width: 40%;
+    padding: 0.2rem;
+    margin-left: 1.7rem;
+    background-color: var(--header-color);
+    color: white;
+    border-radius: 2rem;
+}
+
+.home-item-container{
+    width: 70%;
+    background-color: white;
+    border-radius: 2rem;
+    padding: 2rem;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+}
+
+.home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-balance-container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.home-balance-container > p{
+    font-family: var(--number-font);
+    font-weight: 700;
+    font-size: 2rem;
+    padding-right: 1.5rem;}
+
+.currency-today{
+    padding: 0 2rem;
+}
+.currency-today > p{
+    font-family: var(--number-font);
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+.alert-text{
+    padding: 0 2rem;
+}
+
+.vanumb{
+    display: flex;
+    justify-content: center;
+    font-family: var(--number-font);
+    font-weight: 700;
+    font-size: 1.5rem;
+    background-color: var(--arrive-color);
+    border-radius: 4rem;
+}
+
+.verify-container{
+    margin-top: 2rem;
+    background-color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+}
+
+.atm{
+    width: 80%;
+    padding: 2rem;
+}
+.atmimg{
+    width: 100%;
+}
+.tutorial{
+    display: flex;
+    width: 70%;
+    justify-content: center;
+    font-family: var(--number-font);
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    background-color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+}
+.logout{
+    display: flex;
+    justify-content: center;
+    font-family: var(--brand-name-font);
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-top: 7rem;
+    background-color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+}
 
 :root{
     --page-name-font : 'Lora';
