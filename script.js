@@ -27,7 +27,7 @@ const sellRates = {
 
 // Initial default balances
 const defaultBalances = {
-    idr: 500000.0,
+    idr: 5000000.0,
     usd: 0.0,
     sgd: 0.0,
     cny: 0.0,
@@ -37,7 +37,8 @@ const defaultBalances = {
     gbp: 0.0,
     hkd: 0.0,
     thb: 0.0,
-    myr: 0.0
+    myr: 0.0,
+    total:0.0
 };
 
 
@@ -68,7 +69,7 @@ function LoadBalance() {
     const balances = loadBalancesFromStorage();
     for (let key in balances) {
         const el = document.getElementById(`${key}-balance`);
-        if (el) el.innerHTML = (key === 'idr') ? '*****' : balances[key].toFixed(2);
+        if (el) el.innerHTML = (key === 'idr' || key === 'total') ? '*****' : balances[key].toFixed(2);
     }
 }
 
@@ -104,8 +105,6 @@ function WalletButton() {
 function ConvertButton(){
     window.location.href = './ConvertPage.html';
 }
-
-
 function ShowBalance() {
     const balances = loadBalancesFromStorage();
     const balance = document.getElementById('idr-balance');
@@ -125,15 +124,34 @@ function HideBalance() {
     eyeOpened.style.display = 'none';
 }
 
+function ShowBalance2() {
+    const balances = loadBalancesFromStorage();
+    const balance = document.getElementById('total-balance');
+    const eyeClosed = document.getElementById('eye-closed2');
+    const eyeOpened = document.getElementById('eye-opened2');
+    balance.innerHTML = balances.total.toFixed(2);
+    eyeClosed.style.display = 'none';
+    eyeOpened.style.display = 'inline';
+}
+
+function HideBalance2() {
+    const balance = document.getElementById('total-balance');
+    const eyeClosed = document.getElementById('eye-closed2');
+    const eyeOpened = document.getElementById('eye-opened2');
+    balance.innerHTML = '*****';
+    eyeClosed.style.display = 'inline';
+    eyeOpened.style.display = 'none';
+}
+
 function TransactionPageButton(img, currency, balance, detail, buyrate, sellrate) {
     const balances = loadBalancesFromStorage();
     const url = `./TransactionPage.html?img=${encodeURIComponent(img)}&currency=${encodeURIComponent(currency)}&balance=${encodeURIComponent(balance)}&detail=${encodeURIComponent(detail)}&buyrate=${encodeURIComponent(buyrate)}&sellrate=${encodeURIComponent(sellrate)}&idrbalance=${encodeURIComponent(balances.idr)}`;
     window.location.href = url;
 }
 
-function BuyButton(img, currency, balance, buyrate) {
+function BuyButton(img, currency, balance, buyrate, sellrate) {
     const balances = loadBalancesFromStorage();
-    const url = `./BuyPage.html?img=${encodeURIComponent(img)}&currency=${encodeURIComponent(currency)}&balance=${encodeURIComponent(balance)}&buyrate=${encodeURIComponent(buyrate)}&idrbalance=${encodeURIComponent(balances.idr)}`;
+    const url = `./BuyPage.html?img=${encodeURIComponent(img)}&currency=${encodeURIComponent(currency)}&balance=${encodeURIComponent(balance)}&buyrate=${encodeURIComponent(buyrate)}&sellrate=${encodeURIComponent(sellrate)}&idrbalance=${encodeURIComponent(balances.idr)}`;
     window.location.href = url;
 }
 
@@ -168,7 +186,7 @@ function VerifyPayment(){
 }
 
 window.onload = function () {
-    // localStorage.clear();
+    //localStorage.clear();
     LoadBalance();
     LoadBuyRate();
     LoadSellRate();

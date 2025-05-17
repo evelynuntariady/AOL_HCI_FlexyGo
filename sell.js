@@ -38,6 +38,7 @@ function SellPurchase(currencyCode) {
     const sellrate = parseFloat(document.getElementById('sell-rate').innerText) || 0;
     const sellAmount = sellinput * sellrate;
 
+
     let balances = loadBalancesFromStorage();
     if(sellinput <= 0){
         return
@@ -46,7 +47,8 @@ function SellPurchase(currencyCode) {
         alert("Insufficient Fund!");
         return;
     }
-
+    
+    balances.total -= sellAmount
     balances.idr += sellAmount;
     balances[currencyCode.toLowerCase()] = (balances[currencyCode.toLowerCase()] || 0) - sellinput;
 

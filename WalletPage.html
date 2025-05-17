@@ -12,7 +12,7 @@
         <div class="nav-container">
             <p id="brand-name" onclick="HomeButton()">Flexy Go</p>
                 <div class="nav-bar">
-                    <img src="../assets/account_icon.png" alt="user" class="icon" onclick="ProfileButton()">
+                    <img src="./assets/account_icon.png" alt="user" class="icon" onclick="ProfileButton()">
                 </div>
         </div>
     </div>
@@ -24,16 +24,17 @@
                 <p>Wallet</p>
             </div>
             <div id="balance-container">
-                <p>Total Balance</p>
+                <p>Converted Total (IDR)</p>
                 <div id="balance">
-                    <p>IDR <span id="idr-balance">*****</span></p>
-                    <img src="./assets/eye-closed.png" alt="eye-closed" srcset="" class="eye-icon" onclick="ShowBalance()" id="eye-closed">
-                    <img src="./assets/eye-opened.png" alt="eye-opened" srcset="" class="eye-icon" onclick="HideBalance()" id="eye-opened" style="display: none;">
+                    <p>IDR <span id="total-balance">*****</span></p>
+                    <img src="./assets/eye-closed.png" alt="eye-closed" srcset="" class="eye-icon" onclick="ShowBalance2()" id="eye-closed2">
+                    <img src="./assets/eye-opened.png" alt="eye-opened" srcset="" class="eye-icon" onclick="HideBalance2()" id="eye-opened2" style="display: none;">
                 </div>
             </div>
         </div>
     </div>
     <div id="container">
+        <div id="idr-balance" style="display: none;"></div>
         <div id="currency-container">
             <div id="currency">
                 <img src="./assets/usa-flagpng.png" alt="" class="flag-icon">

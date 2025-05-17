@@ -21,5 +21,6 @@ window.onload = function(){
         document.getElementById('buy-rate').innerText = buyrate
         document.getElementById('idr-balance').innerText = idrbalance
         document.getElementById('sell-rate').innerText = sellrate
+        document.getElementById('sell-rate2').innerText = sellrate
     }
 }
