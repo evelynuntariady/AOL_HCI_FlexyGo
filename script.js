@@ -27,7 +27,7 @@ const sellRates = {
 
 // Initial default balances
 const defaultBalances = {
-    idr: 5000000.0,
+    idr: 500000.0,
     usd: 0.0,
     sgd: 0.0,
     cny: 0.0,

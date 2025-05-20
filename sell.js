@@ -51,7 +51,8 @@ function SellPurchase(currencyCode) {
     balances.total -= sellAmount
     balances.idr += sellAmount;
     balances[currencyCode.toLowerCase()] = (balances[currencyCode.toLowerCase()] || 0) - sellinput;
-
+    console.log(sellAmount)
+    console.log(balances.total)
 
     saveBalancesToStorage(balances);
     alert(`Payment Success!`);

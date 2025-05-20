@@ -39,7 +39,7 @@ function BuyPurchase(currencyCode) {
     const buyInput = parseFloat(document.getElementById('buy-input').value) || 0;
     const buyrate = parseFloat(document.getElementById('buy-rate').innerText) || 0;
     const sellrate = parseFloat(document.getElementById('sell-rate').innerText) || 0;
-    const buyAmount = buyInput / buyrate;
+    const buyAmount = parseFloat((buyInput / buyrate).toFixed(2));
     const totalbalance = parseFloat(document.getElementById('total-balance').value) || 0;
     const total = buyAmount*sellrate;
 
@@ -55,8 +55,8 @@ function BuyPurchase(currencyCode) {
     balances.total += total;
     balances[currencyCode.toLowerCase()] = (balances[currencyCode.toLowerCase()] || 0) + buyAmount;
     console.log(buyAmount)
-    console.log(balances)
-    console.log(totalbalance)
+    console.log(total)
+    console.log(balances.total)
 
     saveBalancesToStorage(balances);
     alert(`Payment Success!`);
